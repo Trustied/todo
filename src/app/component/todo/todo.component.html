@@ -1,0 +1,26 @@
+<li class="list-group-item" [ngClass]="todoInput.isCompleted ? 'list-group-item-success border-success' : ''">
+    <div class="row">
+            <!--<div class="list-group-item" [ngClass]="completed ? 'list-group-item-success border-success' : '' ">
+            <input type="checkbox" class="form-check-input" (change)="onChange()">
+            <label class="form-label-label lead">{{todoInput.title}}</label>
+        </div>-->
+
+        <div class=" d-inline col"> 
+            <input type="checkbox" class="form-check" (change)="onChange()" 
+            [checked]="todoInput.isCompleted == true" style="cursor: pointer;"
+            title="complete?">
+            <label class="form-label-label lead">{{todoInput.title | titlecase}}</label>
+        </div>
+
+        <div class="float-right">
+            <span>{{todoInput.createdAt | date }}</span>
+            <i class="fa fa-heart btn" title="favourite"  (click)="isFavorite()" [ngClass]="todoInput.isFavorite ? 'text-danger' : ''"></i>&nbsp;
+            <button  class="btn btn-danger btn-sm" title="delete" (click)="deleteTodo()">
+                <span class="icon">
+                    <i class="fa fa-trash"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+    
+</li>
